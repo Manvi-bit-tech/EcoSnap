@@ -1,0 +1,7 @@
+streamlit
+python-dotenv
+google.generativeai
+streamlit-chat
+streamlit_chat 
+groq
+
