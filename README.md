@@ -63,7 +63,7 @@ EcoSnap has immense potential for further applications:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-## Contributing 🤝
+## Contribution🤝
 
 We welcome contributions to EcoSnap! Please feel free to submit issues, feature requests, and pull requests. Together, we can make a significant impact on waste management and sustainability.
 
