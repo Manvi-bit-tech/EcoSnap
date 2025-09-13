@@ -1,54 +1,49 @@
 import streamlit as st
-
-
+from pathlib import Path
+import importlib.util
 
 # --- PAGE SETUP ---
 st.set_page_config(
-    
     layout="wide",
     page_title="EcoSnap",
     page_icon=":earth_africa:",
 )
-#Define pages
-about_page = st.Page(
-    "ch/home.py",
-    title="Home",
-    icon="🏠",
-    default=True,
-)
-project_1_page = st.Page(
-    "ch/EcoSnap.py",
-    title="EcoSnap",
-    icon="📸",
-)
-project_2_page = st.Page(
-    "ch/EcoAlt.py",
-    title="EcoAlt",
-    icon="🌱",
-)
-project_3_page = st.Page(
-    "ch/EcoTalk.py",
-    title="EcoTalk",
-    icon="🗣️",
+
+# --- SIDEBAR NAVIGATION ---
+st.sidebar.title("EcoSnap Navigation")
+page_choice = st.sidebar.radio(
+    "Go to",
+    ["Home", "EcoSnap", "EcoAlt", "EcoTalk"]
 )
 
-# --- NAVIGATION SETUP [WITH SECTIONS] ---
-pg = st.navigation(
-    {
-        "Info": [about_page],
-        "Projects": [project_1_page, project_2_page, project_3_page],
-    }
-)
+# --- HELPER FUNCTION TO LOAD PAGES ---
+def load_page(page_path):
+    """
+    Dynamically load a Python file as a module and run it.
+    """
+    if not Path(page_path).exists():
+        st.error(f"Page not found: {page_path}")
+        return
+    spec = importlib.util.spec_from_file_location("module.name", page_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 
-# --- SHARED ON ALL PAGES ---
+# --- PAGE ROUTING ---
+if page_choice == "Home":
+    load_page("ch/home.py")
+elif page_choice == "EcoSnap":
+    load_page("ch/EcoSnap.py")
+elif page_choice == "EcoAlt":
+    load_page("ch/EcoAlt.py")
+elif page_choice == "EcoTalk":
+    load_page("ch/EcoTalk.py")
+
+# --- FOOTER / CREDITS ---
+st.sidebar.markdown("---")
 st.sidebar.markdown(
     '''
     Created by EcoSnap Team ✨<br>
     <img src="https://img.shields.io/badge/EcoSnap-%F0%9F%8C%BF-32CD32?labelColor=2F4F4F" alt="EcoSnap">
-    </a>
     ''', unsafe_allow_html=True
 )
 
-
-
-pg.run()  # Run navigation outside of the sidebar context
