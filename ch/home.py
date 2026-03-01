@@ -72,7 +72,7 @@ st.markdown("""
 #### **Our Project** 🚀  
 We created EcoSnap for the Sustainable Innovators competition, aiming to deliver a user-friendly application that encourages green choices. We are enthusiastic about making a positive environmental impact and inviting others to join us in our mission. 🌿
 
-For more details about our projects or contacting with us, you can visit my <a href="https://github.com/AadishY">
+For more details about our projects or contacting with us, you can visit my <a href="https://github.com/manvi-bit-tech">
     <img src="https://img.shields.io/badge/Github-Profile-green" alt="GitHub">
 </a>
 
@@ -103,3 +103,4 @@ We deeply appreciate your support for EcoSnap! 🌟
 **Your interest** helps drive our mission for a sustainable future. 🌍 Together, we can make a positive impact on the environment. 🌿
 Thank you for joining us on this journey! 💪
 """, unsafe_allow_html=True)
+
